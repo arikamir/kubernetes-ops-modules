@@ -15,8 +15,8 @@ No requirements.
 | <a name="module_cis_alarms"></a> [cis\_alarms](#module\_cis\_alarms) | cloudposse/cloudtrail-cloudwatch-alarms/aws | 0.14.3 |
 | <a name="module_cloudtrail"></a> [cloudtrail](#module\_cloudtrail) | cloudposse/cloudtrail/aws | 0.17.0 |
 | <a name="module_cloudtrail_s3_bucket"></a> [cloudtrail\_s3\_bucket](#module\_cloudtrail\_s3\_bucket) | github.com/ManagedKube/terraform-aws-cloudtrail-s3-bucket.git// | 0.24.0 |
-| <a name="module_kms_cloudtrail"></a> [kms\_cloudtrail](#module\_kms\_cloudtrail) | github.com/ManagedKube/kubernetes-ops.git//terraform-modules/aws/kms/cloudtrail | feat-kms-cloudtrail |
-| <a name="module_kms_cloudwatch_log_group"></a> [kms\_cloudwatch\_log\_group](#module\_kms\_cloudwatch\_log\_group) | github.com/ManagedKube/kubernetes-ops.git//terraform-modules/aws/kms/cloudwatch_log_group | v2.0.37 |
+| <a name="module_kms_cloudtrail"></a> [kms\_cloudtrail](#module\_kms\_cloudtrail) | github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/kms/cloudtrail | feat-kms-cloudtrail |
+| <a name="module_kms_cloudwatch_log_group"></a> [kms\_cloudwatch\_log\_group](#module\_kms\_cloudwatch\_log\_group) | github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/kms/cloudwatch_log_group | v2.0.37 |
 | <a name="module_metric_configs"></a> [metric\_configs](#module\_metric\_configs) | cloudposse/config/yaml | 0.7.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 

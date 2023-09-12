@@ -76,7 +76,7 @@ data "template_file" "helm_values" {
 }
 
 module "ingress-nginx-external" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/helm_generic?ref=v1.0.15"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/helm_generic?ref=v1.0.15"
 
   # this is the helm repo add URL
   repository = "https://kubernetes.github.io/ingress-nginx"

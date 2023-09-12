@@ -1,4 +1,4 @@
-module github.com/ManagedKube/kubernetes-ops
+module github.com/arikamir/kubernetes-ops-modules
 
 go 1.12
 

@@ -31,7 +31,7 @@ cd test
 
 Initilize the folder:
 ```
-go mod init github.com/ManagedKube/kubernetes-ops
+go mod init github.com/arikamir/kubernetes-ops-modules
 ```
 
 

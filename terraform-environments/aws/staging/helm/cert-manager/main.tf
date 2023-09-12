@@ -125,7 +125,7 @@ YAML
 # Helm - cert-manager
 #
 module "cert-manager" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
 
   # this is the helm repo add URL
   repository = "https://charts.jetstack.io"

@@ -68,7 +68,7 @@ provider "helm" {
 #
 # Doc: https://github.com/grafana/helm-charts/tree/main/charts/loki-stack
 module "loki" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
 
   repository          = "https://grafana.github.io/helm-charts"
   official_chart_name = "loki-stack"

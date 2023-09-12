@@ -4,7 +4,7 @@ include {
 }
 
 terraform {
-  source = "github.com/ManagedKube/kubernetes-ops.git//terraform-modules/aws/cluster-autoscaler?ref=v1.0.12"
+  source = "github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/cluster-autoscaler?ref=v1.0.12"
 }
 
 dependency "eks" {

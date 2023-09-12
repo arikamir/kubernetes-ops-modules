@@ -93,7 +93,7 @@ provider "kubectl" {
 # Helm - cluster-autoscaler
 #
 module "cert-manager" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/cert-manager?ref=v1.0.29"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/cert-manager?ref=v1.0.29"
 
   aws_region                  = local.aws_region
   cluster_name                = local.environment_name

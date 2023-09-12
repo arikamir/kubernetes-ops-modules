@@ -35,7 +35,7 @@ provider "aws" {
 # Route53 Hosted Zone
 #
 module "route53-hostedzone" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/route53/hosted-zone?ref=v1.0.19"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/route53/hosted-zone?ref=v1.0.19"
 
   domain_name = local.domain_name
   tags        = local.tags

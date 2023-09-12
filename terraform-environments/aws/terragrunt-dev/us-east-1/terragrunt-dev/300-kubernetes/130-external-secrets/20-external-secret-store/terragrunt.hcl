@@ -4,7 +4,7 @@ include {
 }
 
 terraform {
-  source = "github.com/ManagedKube/kubernetes-ops.git//terraform-modules/aws/helm/external-secrets/secret_store?ref=v2.0.4"
+  source = "github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/helm/external-secrets/secret_store?ref=v2.0.4"
 }
 
 dependency "eks" {

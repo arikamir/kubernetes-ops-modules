@@ -4,7 +4,7 @@ include {
 }
 
 terraform {
-  source = "git::ssh://git@github.com/ManagedKube/kubernetes-ops.git//terraform-modules/azure/vault/?ref=v2.0.50"
+  source = "git::ssh://git@github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/azure/vault/?ref=v2.0.50"
 }
 
 dependency "aks" {

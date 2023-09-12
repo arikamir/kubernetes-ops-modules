@@ -4,7 +4,7 @@ include {
 }
 
 terraform {
-  source = "github.com/ManagedKube/kubernetes-ops.git//terraform-modules/azure/kubernetes/external-dns?ref=v2.0.50"
+  source = "github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/azure/kubernetes/external-dns?ref=v2.0.50"
 }
 
 dependency "aks" {

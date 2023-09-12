@@ -62,11 +62,11 @@ Adding `ls -l` into the step and then committing it and then waiting for the Git
 execute it.  If you are lucky you get it correct on the first try.  I'm not that lucky.  It took me a
 bunch of tries before I got it correct.
 
-If you look at the commits around this time, you will see what I had to do: [https://github.com/ManagedKube/kubernetes-ops/commit/807185895f0ef0c19652b250f687b998a117b592](https://github.com/ManagedKube/kubernetes-ops/commit/807185895f0ef0c19652b250f687b998a117b592)
+If you look at the commits around this time, you will see what I had to do: [https://github.com/arikamir/kubernetes-ops-modules/commit/807185895f0ef0c19652b250f687b998a117b592](https://github.com/arikamir/kubernetes-ops-modules/commit/807185895f0ef0c19652b250f687b998a117b592)
 
 That is not that cool of a workflow.
 
-Once I got that figured out, then if you look at this run: [https://github.com/ManagedKube/kubernetes-ops/commit/807185895f0ef0c19652b250f687b998a117b592/checks?check_suite_id=342939929#step:9:16](https://github.com/ManagedKube/kubernetes-ops/commit/807185895f0ef0c19652b250f687b998a117b592/checks?check_suite_id=342939929#step:9:16)
+Once I got that figured out, then if you look at this run: [https://github.com/arikamir/kubernetes-ops-modules/commit/807185895f0ef0c19652b250f687b998a117b592/checks?check_suite_id=342939929#step:9:16](https://github.com/arikamir/kubernetes-ops-modules/commit/807185895f0ef0c19652b250f687b998a117b592/checks?check_suite_id=342939929#step:9:16)
 
 ```bash
 time="2019-12-05T02:45:48Z" level=error msg="could not create sonobuoy client: couldn't get sonobuoy api helper: could not get api group resources: Get https://api-dev-test-us-east-1-k8-idc14e-1850800389.us-east-1.elb.amazonaws.com/api?timeout=32s: dial tcp 18.211.59.240:443: i/o timeout"

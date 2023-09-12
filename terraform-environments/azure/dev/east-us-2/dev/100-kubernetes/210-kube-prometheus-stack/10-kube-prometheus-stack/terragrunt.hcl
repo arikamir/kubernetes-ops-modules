@@ -4,7 +4,7 @@ include {
 }
 
 terraform {
-  source = "github.com/ManagedKube/kubernetes-ops.git//terraform-modules/aws/helm/kube-prometheus-stack?ref=v2.0.13"
+  source = "github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/helm/kube-prometheus-stack?ref=v2.0.13"
 }
 
 dependency "aks" {

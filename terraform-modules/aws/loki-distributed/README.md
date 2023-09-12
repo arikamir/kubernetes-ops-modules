@@ -14,7 +14,7 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_iam_assumable_role_admin"></a> [iam\_assumable\_role\_admin](#module\_iam\_assumable\_role\_admin) | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 3.6.0 |
-| <a name="module_loki"></a> [loki](#module\_loki) | github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/helm_generic | v1.0.30 |
+| <a name="module_loki"></a> [loki](#module\_loki) | github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/helm_generic | v1.0.30 |
 
 ## Resources
 

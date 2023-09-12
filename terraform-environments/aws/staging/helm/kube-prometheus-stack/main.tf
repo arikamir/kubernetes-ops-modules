@@ -91,7 +91,7 @@ provider "kubectl" {
 # Helm - kube-prometheus-stack
 #
 module "kube-prometheus-stack" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/kube-prometheus-stack?ref=v1.0.15"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/kube-prometheus-stack?ref=v1.0.15"
 
   helm_values = file("${path.module}/values.yaml")
 

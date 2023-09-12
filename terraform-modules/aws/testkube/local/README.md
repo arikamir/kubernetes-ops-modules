@@ -16,7 +16,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_manifest_set"></a> [manifest\_set](#module\_manifest\_set) | github.com/ManagedKube/kubernetes-ops.git//terraform-modules/aws/kubernetes/manifest_set | v2.0.12 |
+| <a name="module_manifest_set"></a> [manifest\_set](#module\_manifest\_set) | github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/kubernetes/manifest_set | v2.0.12 |
 
 ## Resources
 

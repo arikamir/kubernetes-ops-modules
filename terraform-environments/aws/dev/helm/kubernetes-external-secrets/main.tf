@@ -68,7 +68,7 @@ provider "helm" {
 # Helm - kube-prometheus-stack
 #
 module "kubernetes-external-secrets" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/kubernetes-external-secrets?ref=v1.0.20"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/kubernetes-external-secrets?ref=v1.0.20"
 
   eks_cluster_oidc_issuer_url = data.terraform_remote_state.eks.outputs.cluster_oidc_issuer_url
   helm_values                 = file("${path.module}/values.yaml")

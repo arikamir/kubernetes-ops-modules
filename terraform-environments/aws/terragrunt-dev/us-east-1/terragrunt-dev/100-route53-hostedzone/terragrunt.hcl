@@ -4,7 +4,7 @@ include {
 }
 
 terraform {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/route53/hosted-zone?ref=v2.0.21"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/route53/hosted-zone?ref=v2.0.21"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------

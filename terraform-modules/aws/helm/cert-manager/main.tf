@@ -69,7 +69,7 @@ data "template_file" "helm_values" {
 }
 
 module "cert-manager" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/helm_generic?ref=v1.0.27"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/helm_generic?ref=v1.0.27"
 
   repository          = local.helm_repository
   official_chart_name = local.official_chart_name

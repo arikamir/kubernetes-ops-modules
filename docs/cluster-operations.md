@@ -9,7 +9,7 @@ Currently there are not certificates to install or update
 The EKS cluster uses roles and policies.  The EKS module handles it's own requirements internally to the module and we as users of this module don't need to specifically worry about what roles and policies it needs.
 
 ### Access to the EKS clusters
-The EKS cluster defines a set of roles and users that can be mapped into the EKS cluster:  https://github.com/ManagedKube/kubernetes-ops/blob/main/terraform-environments/aws/dev/20-eks/main.tf
+The EKS cluster defines a set of roles and users that can be mapped into the EKS cluster:  https://github.com/arikamir/kubernetes-ops-modules/blob/main/terraform-environments/aws/dev/20-eks/main.tf
 
 ```
   map_roles = [
@@ -35,7 +35,7 @@ Kubernetes RBAC documentation: https://kubernetes.io/docs/reference/access-authn
 ## How to scale up or scale down a POD
 This is done by setting the `replicaCount` in each of the application deployment file.
 
-For example for `nginx-ingress`, you would change the number of replica count here: https://github.com/ManagedKube/kubernetes-ops/blob/main/terraform-environments/aws/dev/helm/40-ingress-nginx-external/helm_values.tpl.yaml
+For example for `nginx-ingress`, you would change the number of replica count here: https://github.com/arikamir/kubernetes-ops-modules/blob/main/terraform-environments/aws/dev/helm/40-ingress-nginx-external/helm_values.tpl.yaml
 
 This determines how many pods will run in this environment for this service.
 
@@ -66,7 +66,7 @@ Documentation: https://docs.aws.amazon.com/eks/latest/userguide/specify-service-
 
 Here is an example the the EKS cluster-autoscaler.  The cluster-autoscaler needs access to the AWS ASG (auto scaling groups) so that it can scale the number of nodes in the cluster up and down based on it's needs.  It needs to do perform activities such as listing the nodes in the ASG group and being able to make changes to it.
 
-Here is the cluster-autoscaler module: https://github.com/ManagedKube/kubernetes-ops/tree/main/terraform-modules/aws/cluster-autoscaler
+Here is the cluster-autoscaler module: https://github.com/arikamir/kubernetes-ops-modules/tree/main/terraform-modules/aws/cluster-autoscaler
 
 We'll go through some parts of this config.
 

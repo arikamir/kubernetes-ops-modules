@@ -72,7 +72,7 @@ data "template_file" "helm_values" {
 }
 
 module "cluster-autoscaler" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
 
   repository          = "https://kubernetes.github.io/autoscaler"
   official_chart_name = "cluster-autoscaler"

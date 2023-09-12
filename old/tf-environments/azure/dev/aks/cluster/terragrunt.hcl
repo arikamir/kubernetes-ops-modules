@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  source = "git::ssh://git@github.com/ManagedKube/kubernetes-ops.git//tf-modules/azure/aks/cluster/?ref=v0.1.23"
+  source = "git::ssh://git@github.com/arikamir/kubernetes-ops-modules.git//tf-modules/azure/aks/cluster/?ref=v0.1.23"
 }
 
 inputs = {

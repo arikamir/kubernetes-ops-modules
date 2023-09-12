@@ -67,7 +67,7 @@ provider "helm" {
 # Helm - cluster-autoscaler
 #
 module "cluster-autoscaler" {
-  source = "github.com/ManagedKube/kubernetes-ops//terraform-modules/aws/cluster-autoscaler?ref=v1.0.12"
+  source = "github.com/arikamir/kubernetes-ops-modules//terraform-modules/aws/cluster-autoscaler?ref=v1.0.12"
 
   aws_region                  = local.aws_region
   cluster_name                = local.environment_name

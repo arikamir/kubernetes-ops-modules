@@ -9,7 +9,7 @@
 ## Destroy pipeline
 Example of the destroy pipeline running:
 * Wanted to rename the istio directory so I had to delete it first
-* https://github.com/ManagedKube/kubernetes-ops/runs/6912249701?check_suite_focus=true
+* https://github.com/arikamir/kubernetes-ops-modules/runs/6912249701?check_suite_focus=true
 
 ## Base infrastructure
 * 050-github-aws-permissions 
@@ -72,7 +72,7 @@ The last commit was to add the "non interactive" flag so that it just said yes. 
 ```
 
 
-https://github.com/ManagedKube/kubernetes-ops/pull/317#issuecomment-1158068550
+https://github.com/arikamir/kubernetes-ops-modules/pull/317#issuecomment-1158068550
 
 ## 100-route53-hostedzone
 It turns out that if you have a subdomain when creating this hostedzone the apply would fail
@@ -93,7 +93,7 @@ turns makes this route53 creation fail:
 time=2022-06-16T19:50:47Z level=error msg=1 error occurred:
 	* exit status 1
 ```
-GHA run: https://github.com/ManagedKube/kubernetes-ops/runs/6925224762?check_suite_focus=true#step:11:185
+GHA run: https://github.com/arikamir/kubernetes-ops-modules/runs/6925224762?check_suite_focus=true#step:11:185
 
 This probably should be split into more than one module/instantiation:
 1. Create the route53 hosted zone
@@ -102,16 +102,16 @@ This probably should be split into more than one module/instantiation:
 
 # 150-vpc
 
-Went fine: https://github.com/ManagedKube/kubernetes-ops/pull/318
+Went fine: https://github.com/arikamir/kubernetes-ops-modules/pull/318
 
 # 200-eks
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/319
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/319
 * I just touched the file since it was already in the repository to make the pipeline create it all again
 
 # 250-eks-cluster-autoscaler
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/320
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/320
 
 Then subsequently, I saw that AWS EKS module that we are using now supports (again) the kubernetes
 auth configmap: https://github.com/terraform-aws-modules/terraform-aws-eks
@@ -133,7 +133,7 @@ They took this out before because the AWS EKS module said they didnt want to tak
 was out of scope for this module.  I guess they changed their minds which is good b/c this was
 a pain for the user of this module to take care of it on their own.
 
-Updating our usage of the module to use this again PR: https://github.com/ManagedKube/kubernetes-ops/pull/322
+Updating our usage of the module to use this again PR: https://github.com/arikamir/kubernetes-ops-modules/pull/322
 
 Another note.  You might be wondering why we dont just use the source AWS EKS module directly.  That is
 a good question.  The reason is b/c that module needs stuff like the AWS KMS keys resources.  We are "wrapping"
@@ -142,12 +142,12 @@ module and a primitive like an int/map/etc.  This kubernetes-ops module you are 
 takes those primitives and adds other stuff to it to make it easier for the end user to use for this specific
 use case.
 
-PR for testing out using that updated module: https://github.com/ManagedKube/kubernetes-ops/pull/323
+PR for testing out using that updated module: https://github.com/arikamir/kubernetes-ops-modules/pull/323
 * Looks good!
 * Auth is working as well for the user that created the cluster and my local user
 
 
-PR for setting the 200-eks terragrunt to the release tag: https://github.com/ManagedKube/kubernetes-ops/pull/324
+PR for setting the 200-eks terragrunt to the release tag: https://github.com/arikamir/kubernetes-ops-modules/pull/324
 * It was on the branch for the module before so that I can test it out without having to merge and release the eks updated module
 
 # 100-cert-manager
@@ -193,23 +193,23 @@ was working before.
 The idea now is to separate out the cert-manager helm chart install and then have another
 module to apply the cert-manager's issuers.
 
-The PR to separate this out to two modules:https://github.com/ManagedKube/kubernetes-ops/pull/326
+The PR to separate this out to two modules:https://github.com/arikamir/kubernetes-ops-modules/pull/326
 
-This PR: https://github.com/ManagedKube/kubernetes-ops/pull/327
+This PR: https://github.com/arikamir/kubernetes-ops-modules/pull/327
 * Applies the cert-manager helm install
 * no issuers
 
-This PR: https://github.com/ManagedKube/kubernetes-ops/pull/328
+This PR: https://github.com/arikamir/kubernetes-ops-modules/pull/328
 * Applies the cert-manager-issuer items
 
 
 # 110-testkube
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/329
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/329
 
 # 110-testkube-infra-base
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/330
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/330
 
 These are basic test that can apply to any cluster provided by ManagedKube
 
@@ -219,7 +219,7 @@ and have your own `local` tests (this directory).  While this `local` directory 
 repo, it is really meant to go into your own repo and you can reference the source from there.  The reason
 is that the set of tests here in this module is specific to you and really to no one else.
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/331
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/331
 * Has the local module with the testkube (which should be in your own repo instead of this one)
 * Instantiation of that module to apply the testkube CRDs (test and testsuites)
   * You will need to change the `source` of this module to your own repo
@@ -227,7 +227,7 @@ PR: https://github.com/ManagedKube/kubernetes-ops/pull/331
 # gha-testkube-run
 Now that we have testkube in.  We can test run it to check if it is working.
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/332
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/332
 * The test fails but that is known since it is hitting a currently none existent endpoint
 * The point of this was to check if it is running and if you look at the PR and look at the runs you can see testkube running successfully
 * Commenting out the testkube run for now
@@ -235,13 +235,13 @@ PR: https://github.com/ManagedKube/kubernetes-ops/pull/332
 
 # 120-external-dns
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/334
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/334
 
 Failed to apply:
-* https://github.com/ManagedKube/kubernetes-ops/actions/runs/2517587090
+* https://github.com/arikamir/kubernetes-ops-modules/actions/runs/2517587090
 
 PR to investigate and to fix this:
-* https://github.com/ManagedKube/kubernetes-ops/pull/335
+* https://github.com/arikamir/kubernetes-ops-modules/pull/335
 * The last commit commented out the `if` statement in the GHA pipeline so that it will apply without having to merge this PR first.  This is a way to test if it is working.  You probably should only do this in a dev type env.
 * Turns out that the problem was not the external-dns helm chart
 
@@ -259,11 +259,11 @@ provider.
 
 Looking at a recent run of the `10-cert-manager`'s `.terraform.lock.file` and indeed the versions
 changed.  So I made this change to use the older version to see if it would work: 
-* https://github.com/ManagedKube/kubernetes-ops/pull/335/files#diff-e64319124f37bef2c05ed3a1916e4b0c58cd6616e36091d00e2a77a3618427caR23
+* https://github.com/arikamir/kubernetes-ops-modules/pull/335/files#diff-e64319124f37bef2c05ed3a1916e4b0c58cd6616e36091d00e2a77a3618427caR23
 
 After making this change:
 * The apply run went fine:
-* https://github.com/ManagedKube/kubernetes-ops/runs/6942225637?check_suite_focus=true
+* https://github.com/arikamir/kubernetes-ops-modules/runs/6942225637?check_suite_focus=true
 
 This is a good lesson that teaches us the following:
 * It is important to use the `.terraform.lock.hcl` file
@@ -274,31 +274,31 @@ upstream items that have their own life cycle and releases.  While we dont want 
 # 130-external-secrets
 This installs the external-secrets helm chart which is an operator
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/336
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/336
 
 Looks like this also has the same helm provider version problem
-* https://github.com/ManagedKube/kubernetes-ops/runs/6943822623?check_suite_focus=true
+* https://github.com/arikamir/kubernetes-ops-modules/runs/6943822623?check_suite_focus=true
 
 Will have to peg all new ones to the older version for now.
-* https://github.com/ManagedKube/kubernetes-ops/pull/337
+* https://github.com/arikamir/kubernetes-ops-modules/pull/337
 
 # 130-external-secrets-store
 This installs the CRDs for external-secrets to tell it what AWS secret store
 to use.
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/338
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/338
 
 # 200-istio
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/339
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/339
 * failed b/c of the lock file
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/340
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/340
 * Updated the lock file
 
 # 200-istio cert
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/345
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/345
 
 This gets the cert-manager/Let's Encrypt wild card cert that
 can be used for all namespaces.
@@ -329,13 +329,13 @@ getting this one certificate would be good enough.
 
 # 210-kube-prometheus-stack
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/343
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/343
 
 Can reach grafana at this URL: https://grafana.terragrunt-dev.managedkube.com
 
 # enabling testkube
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/346
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/346
 
 We added testkube deployments into the cluster above but it was disabled b/c the initial
 test was testing to see if the prometheus endpoint was up or not.  Now that it is,
@@ -355,21 +355,21 @@ Going to skip this for now.
 
 # 220-grafana-loki
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/348
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/348
 
 # 230-opentelemetry
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/349
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/349
 * This is for the tempo server
 
 # 230-opentelemetry operator
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/350
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/350
 * This is for the operator that will setup the opentel collector
 
 # 230-opentelemetry collector
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/351
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/351
 * Applies the opentelemetry CRD to create a collector
 * This collector sends its outputs to the tempo server
 
@@ -380,7 +380,7 @@ This is an example application that uses:
   which has a frontend and a backend.  It will send the APM traces to the 
   opentelemetry collector which then can be visualized in Grafana.
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/352
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/352
 
 This is also a good example of using the ManagedKube's Generic Application
 Helm chart to deploy out any containers that we find out there.
@@ -389,7 +389,7 @@ Helm chart to deploy out any containers that we find out there.
 Instead of adding each individual domain name in for external-dns to setup
 we can add in a *.${domain_name} route then it would slurp everything in.
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/353
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/353
 
 Once this was applied...looking at the external-dns logs:
 
@@ -431,7 +431,7 @@ foobar.terragrunt-dev.managedkube.com. 60 IN A  54.152.224.149
 # 510-sample-app-opentel-2
 Second sample app that has opentelemetry tracing enabled
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/354
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/354
 
 Was having a problem getting sub pages that are required for the entire page to load.
 In the web browser it was saing that it was not able to get: `https://sample-app-2.terragrunt-dev.managedkube.com/jquery-3.1.1.min.js`
@@ -494,7 +494,7 @@ This fixes the problem.
 
 Rolling that fix into code:
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/355
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/355
 
 # Problem: HTTP/2 connection reuse 
 After getting both sample applications up and running I found a problem.
@@ -536,7 +536,7 @@ in there.  I just didnt see anything out of the normal.  I didnt have much to go
 
 I started to look at my Istio ingress usage.  The way this was exposing all of these endpoints out on the
 Istio ingress was through the regular Kubernetes Ingress resource type: https://istio.io/latest/docs/tasks/traffic-management/ingress/kubernetes-ingress/#configuring-ingress-using-an-ingress-resource.  The configuration
-at this time is here: https://github.com/ManagedKube/kubernetes-ops/blob/26e5fc0167634ccbe2c5dda80b890244a1630c8a/terraform-environments/aws/terragrunt-dev/us-east-1/terragrunt-dev/300-kubernetes/500-sample-app-opentel-1/app/helm_values.tpl.yaml#L30.  This is sort of a cheat or maybe more of a shortcut to exposing out an endpoint
+at this time is here: https://github.com/arikamir/kubernetes-ops-modules/blob/26e5fc0167634ccbe2c5dda80b890244a1630c8a/terraform-environments/aws/terragrunt-dev/us-east-1/terragrunt-dev/300-kubernetes/500-sample-app-opentel-1/app/helm_values.tpl.yaml#L30.  This is sort of a cheat or maybe more of a shortcut to exposing out an endpoint
 via the Istio Ingress without having to create an Istio Gateway and VirtualService resource.  So I used it,
 I like shortcuts (if it works).
 
@@ -548,7 +548,7 @@ I knew the requests were making it to the Istio ingress but that was returning a
 
 I updated the `standard-application` helm chart used to deploy out the sample apps with to add in
 the `IngressClass` resources: https://github.com/ManagedKube/helm-charts/pull/44.  Then updating the
-usage of sample app to use this new helm chart version release: https://github.com/ManagedKube/kubernetes-ops/pull/357/commits/aab554fa868edd8b7b45290c21b1d5d318791019.  After having the IaC deploy that out, I tested reaching
+usage of sample app to use this new helm chart version release: https://github.com/arikamir/kubernetes-ops-modules/pull/357/commits/aab554fa868edd8b7b45290c21b1d5d318791019.  After having the IaC deploy that out, I tested reaching
 the endpoints again.
 * cURL worked for all 3 endpoints (was working before)
 * The browser still had the same behavior.  The first of the 3 endpoint I would go to would work but the other two would not.
@@ -581,7 +581,7 @@ that any applications can use in this cluster.  The idea would be that the "DevO
 the `Gateway` and then application teams can use this gateway for ingressess that they want.  This can expand
 to more gateways over time as the need fo the company changes and different requirements for the gateway arrise.
 
-This addition was added to the PR trying to fix the ingress: https://github.com/ManagedKube/kubernetes-ops/pull/357/commits/218473f0829ee2beed8b804178c440faedfd1e68#diff-65ccd470fca6177a755868fd694b60ec33969ea1231f1d97c2b1977fb2113e88R2-R27
+This addition was added to the PR trying to fix the ingress: https://github.com/arikamir/kubernetes-ops-modules/pull/357/commits/218473f0829ee2beed8b804178c440faedfd1e68#diff-65ccd470fca6177a755868fd694b60ec33969ea1231f1d97c2b1977fb2113e88R2-R27
 
 After applying there is a `gateway`:
 ```
@@ -596,11 +596,11 @@ the Istio `Gateway` that each app wants to bind to.
 
 This commit in the same PR adds the virtual service params to the helm chart:
 * sample application 1
-* https://github.com/ManagedKube/kubernetes-ops/pull/357/commits/f39b77c4a7602fbb6407f1bd4f3c9e2932bab3a4
+* https://github.com/arikamir/kubernetes-ops-modules/pull/357/commits/f39b77c4a7602fbb6407f1bd4f3c9e2932bab3a4
 * This worked
 
 The commit for the sample app 2
-* https://github.com/ManagedKube/kubernetes-ops/pull/357/commits/d7c2a1ae79148b6c77eddbc08588cd098a024ff1
+* https://github.com/arikamir/kubernetes-ops-modules/pull/357/commits/d7c2a1ae79148b6c77eddbc08588cd098a024ff1
 * This is working
 
 After all of the previous changes, everything is working as expected:
@@ -609,14 +609,14 @@ After all of the previous changes, everything is working as expected:
 # eks-update-1-22
 Updating the cluster to the EKS 1.22 version
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/358
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/358
 
 # Kiali
 
-PR: https://github.com/ManagedKube/kubernetes-ops/pull/364
+PR: https://github.com/arikamir/kubernetes-ops-modules/pull/364
 
 Updating Kiali to the latest version PR:
-* https://github.com/ManagedKube/kubernetes-ops/pull/365
+* https://github.com/arikamir/kubernetes-ops-modules/pull/365
 
 
 # Create self signed cert

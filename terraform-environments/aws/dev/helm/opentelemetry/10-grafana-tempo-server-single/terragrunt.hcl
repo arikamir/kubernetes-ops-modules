@@ -1,5 +1,5 @@
 terraform {
-  source = "github.com/ManagedKube/kubernetes-ops.git//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
+  source = "github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/helm/helm_generic?ref=v1.0.9"
 }
 
 # Include all settings from the root terragrunt.hcl file
