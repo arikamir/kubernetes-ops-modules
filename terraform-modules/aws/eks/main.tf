@@ -32,7 +32,7 @@ resource "aws_kms_key" "eks" {
 }
 
 module "kms_cloudwatch_log_group" {
-  source                  = "github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/kms/cloudwatch_log_group?ref=v2.0.37"
+  source                  = "github.com/arikamir/kubernetes-ops-modules.git//terraform-modules/aws/kms/cloudwatch_log_group"
   log_group_name          = "/aws/eks/${var.cluster_name}/cluster"
   tags                    = var.tags
 }
@@ -84,7 +84,7 @@ resource "aws_iam_role_policy_attachment" "amazon_ebs_csi_driver" {
 
 module "eks" {
   source           = "terraform-aws-modules/eks/aws"
-  version          = "18.23.0"
+  version          = "19.16.0"
   cluster_name     = var.cluster_name
   cluster_version  = var.cluster_version
   enable_irsa      = var.enable_irsa
