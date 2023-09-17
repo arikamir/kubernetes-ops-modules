@@ -14,7 +14,7 @@ module "vpc" {
   # We want to use the 100.64.0.0/16 address space for the EKS nodes and since
   # this module doesnt have an EKS subnet, we will use the elasticache instead.
   elasticache_subnets = var.k8s_worker_subnets
-
+  map_public_ip_on_launch = var.map_public_ip_on_launch
   enable_nat_gateway  = var.enable_nat_gateway
   reuse_nat_ips       = var.reuse_nat_ips
   external_nat_ip_ids = var.external_nat_ip_ids
