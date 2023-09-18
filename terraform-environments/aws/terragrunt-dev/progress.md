@@ -250,7 +250,7 @@ It turns out that the Terraform helm provider just updated from version `2.5.1` 
 
 Was searching around the internet for this error in the GHA run:
 ```
- │Error: Kubernetes cluster unreachable: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1"
+ │Error: Kubernetes cluster unreachable: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1beta1"
 ```
 
 Nothing that directly told me a fix but people were eluding to versions of kubectl and helm and maybe
@@ -346,7 +346,7 @@ some reason:
 
 ```
 kubectl testkube get tests
-⨯ setting up client type (error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1")
+⨯ setting up client type (error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1beta1")
 ```
 
 It might be because of the kube version of the client or the server?
